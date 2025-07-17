@@ -87,9 +87,13 @@ const start = async () => {
       prefix: '/indicators'
     })
     await initOwnerAccount()
+    // await fastify.listen({
+    //   port: envConfig.PORT,
+    //   host: envConfig.DOCKER ? '0.0.0.0' : 'localhost'
+    // })
     await fastify.listen({
-      port: envConfig.PORT,
-      host: envConfig.DOCKER ? '0.0.0.0' : 'localhost'
+      port: Number(process.env.PORT) || 4000, // Ưu tiên PORT Render cấp, fallback local
+      host: '0.0.0.0' // BẮT BUỘC để Render kết nối
     })
     console.log(`Server đang chạy: ${API_URL}`)
   } catch (err) {
