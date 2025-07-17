@@ -1,0 +1,5 @@
+node_modules/
+dist/
+.env
+luu-y-khi-deploy.md
+Quản lý quán ăn.postman_collection.json
